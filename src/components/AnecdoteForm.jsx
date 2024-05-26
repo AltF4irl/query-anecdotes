@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import anecdoteService from '../anecdotes'
 
-const AnecdoteForm = () => {
-  const queryClient = useQueryClient()
+const AnecdoteForm = ({ queryClient }) => {
+  
   const newAnecdoteMutation = useMutation({ 
     mutationFn: anecdoteService.create,
     onSuccess: (newAnecdote) => {
