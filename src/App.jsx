@@ -12,7 +12,8 @@ const App = () => {
   const res = useQuery({
     queryKey: ['anecdotes'],
     queryFn: anecdoteService.getAll,
-    retry: 1
+    retry: 1,
+    refetchOnWindowFocus: false
   })
   console.log(JSON.parse(JSON.stringify(res)))
 
