@@ -2,7 +2,6 @@ import AnecdoteForm from './components/AnecdoteForm'
 import Notification from './components/Notification'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import anecdoteService from './anecdotes'
-import { NotificationContextProvider } from './NotificationContext'
 import AnecdoteList from './components/AnecdoteList'
 
 const App = () => {
@@ -23,15 +22,13 @@ const App = () => {
   }
 
   return (
-    <NotificationContextProvider>
-        <div>
+      <div>
         <h3>Anecdote app</h3>
       
         <Notification />
         <AnecdoteForm queryClient={queryClient} />
         <AnecdoteList queryClient={queryClient} />
       </div>
-    </NotificationContextProvider>
     
   )
 }

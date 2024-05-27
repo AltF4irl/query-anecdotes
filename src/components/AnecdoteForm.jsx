@@ -12,6 +12,14 @@ const AnecdoteForm = ({ queryClient }) => {
     onSuccess: (newAnecdote) => {
       const anecdotes = queryClient.getQueryData(['anecdotes'])
       queryClient.setQueryData(['anecdotes'], anecdotes.concat(newAnecdote))
+    },
+    onError: () => {
+      notificationDispatch({
+        type: "SERVER_ERROR"
+      })
+      setTimeout(() => {
+        notificationDispatch({ type: "NOTIFICATION_CLEAR" })
+      }, 5000)
     }
   })
 
